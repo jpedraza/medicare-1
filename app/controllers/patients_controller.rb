@@ -3,7 +3,7 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
+    @patients = Patient.find(:all, :limit => 50, :joins => "LEFT JOIN treatments ON ltreatment_id = treatments.id")
 
     respond_to do |format|
       format.html # index.html.erb
