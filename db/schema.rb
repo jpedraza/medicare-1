@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120616060859) do
+ActiveRecord::Schema.define(:version => 20120616072735) do
 
   create_table "diagnoses", :force => true do |t|
     t.string   "name"
@@ -27,10 +27,42 @@ ActiveRecord::Schema.define(:version => 20120616060859) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "patients", :force => true do |t|
+    t.string   "name"
+    t.string   "card"
+    t.string   "address"
+    t.integer  "ltreatment_id"
+    t.boolean  "hasscan"
+    t.integer  "age"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "scans", :force => true do |t|
+    t.string   "name"
+    t.integer  "scantype_id"
+    t.integer  "treatment_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "scantypes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "treatments", :force => true do |t|
+    t.integer  "doctor_id"
+    t.integer  "patient_id"
+    t.text     "complaints"
+    t.text     "anamnesis"
+    t.text     "diagnosis"
+    t.text     "tests"
+    t.integer  "diagnosis_id"
+    t.date     "plandate"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end
