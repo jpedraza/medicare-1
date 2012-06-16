@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  doctor_id: 1
+  patient_id: 1
+  complaints: MyText
+  anamnesis: MyText
+  diagnosis: MyText
+  tests: MyText
+  diagnosis_id: 1
+  plandate: 2012-06-16
+
+two:
+  doctor_id: 1
+  patient_id: 1
+  complaints: MyText
+  anamnesis: MyText
+  diagnosis: MyText
+  tests: MyText
+  diagnosis_id: 1
+  plandate: 2012-06-16

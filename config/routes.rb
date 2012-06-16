@@ -1,4 +1,10 @@
 Hero::Application.routes.draw do
+  resources :treatments
+
+  resources :scans
+
+  resources :patients
+
   resources :scantypes
 
   resources :diagnoses

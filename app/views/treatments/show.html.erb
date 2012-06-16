@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Doctor:</b>
+  <%= @treatment.doctor_id %>
+</p>
+
+<p>
+  <b>Patient:</b>
+  <%= @treatment.patient_id %>
+</p>
+
+<p>
+  <b>Complaints:</b>
+  <%= @treatment.complaints %>
+</p>
+
+<p>
+  <b>Anamnesis:</b>
+  <%= @treatment.anamnesis %>
+</p>
+
+<p>
+  <b>Diagnosis:</b>
+  <%= @treatment.diagnosis %>
+</p>
+
+<p>
+  <b>Tests:</b>
+  <%= @treatment.tests %>
+</p>
+
+<p>
+  <b>Diagnosis:</b>
+  <%= @treatment.diagnosis_id %>
+</p>
+
+<p>
+  <b>Plandate:</b>
+  <%= @treatment.plandate %>
+</p>
+
+
+<%= link_to 'Edit', edit_treatment_path(@treatment) %> |
+<%= link_to 'Back', treatments_path %>
