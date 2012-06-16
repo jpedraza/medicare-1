@@ -2,6 +2,14 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 ru:
+  doctors:
+    index:
+      title: Врачи
+      new: Добавить врача
+    new:
+      title: Новый врач
+    edit:
+      title: Изменить данные о враче
   date:
     abbr_day_names:
     - Вс
@@ -177,10 +185,11 @@ ru:
       destroy: Удалить
       edit: Изменить
       cancel: Отмена
+      confirm: Удалить безвозратно?
     submit:
-      create: Создать %{model}
-      submit: Сохранить %{model}
-      update: Сохранить %{model}
+      create: Создать
+      submit: Сохранить
+      update: Сохранить
   number:
     currency:
       format:
@@ -267,6 +276,8 @@ ru:
     errors:
       <<: *errors
   activerecord:
+    accusative:
+      Doctor: "доктора"
     models:
       patient: 
         one: "Пациент"
@@ -286,6 +297,11 @@ ru:
         few: диагноза
         many: диагнозов
         other: диагнозы
+      doctor:
+        one: врач
+        few: врача
+        many: врачей
+        other: врачи
 
 
     attributes:
@@ -302,6 +318,9 @@ ru:
       diagnosis:
         name: Название
         code: Шифр
+      doctor:
+        name: Ф.И.О.
+        post: Регалии
       scan:
         name: Название
         scantype_id: Тип
