@@ -1,20 +1,25 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = @scan.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @scan.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @scan.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:scantype_id) %>:</strong></dt>
+  <dd><%= @scan.scantype_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:treatment_id) %>:</strong></dt>
+  <dd><%= @scan.treatment_id %></dd>
+</dl>
 
-<p>
-  <b>Scantype:</b>
-  <%= @scan.scantype_id %>
-</p>
-
-<p>
-  <b>Treatment:</b>
-  <%= @scan.treatment_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_scan_path(@scan) %> |
-<%= link_to 'Back', scans_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              scans_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_scan_path(@scan), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              scan_path(@scan),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

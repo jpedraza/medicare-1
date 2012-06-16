@@ -1,37 +1,50 @@
-<h1>Listing treatments</h1>
-
-<table>
-  <tr>
-    <th>Doctor</th>
-    <th>Patient</th>
-    <th>Complaints</th>
-    <th>Anamnesis</th>
-    <th>Diagnosis</th>
-    <th>Tests</th>
-    <th>Diagnosis</th>
-    <th>Plandate</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @treatments.each do |treatment| %>
-  <tr>
-    <td><%= treatment.doctor_id %></td>
-    <td><%= treatment.patient_id %></td>
-    <td><%= treatment.complaints %></td>
-    <td><%= treatment.anamnesis %></td>
-    <td><%= treatment.diagnosis %></td>
-    <td><%= treatment.tests %></td>
-    <td><%= treatment.diagnosis_id %></td>
-    <td><%= treatment.plandate %></td>
-    <td><%= link_to 'Show', treatment %></td>
-    <td><%= link_to 'Edit', edit_treatment_path(treatment) %></td>
-    <td><%= link_to 'Destroy', treatment, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<%- model_class = Treatment.new.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:doctor_id) %></th>
+      <th><%= model_class.human_attribute_name(:patient_id) %></th>
+      <th><%= model_class.human_attribute_name(:complaints) %></th>
+      <th><%= model_class.human_attribute_name(:anamnesis) %></th>
+      <th><%= model_class.human_attribute_name(:diagnosis) %></th>
+      <th><%= model_class.human_attribute_name(:tests) %></th>
+      <th><%= model_class.human_attribute_name(:diagnosis_id) %></th>
+      <th><%= model_class.human_attribute_name(:plandate) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @treatments.each do |treatment| %>
+      <tr>
+        <td><%= link_to treatment.id, treatment_path(treatment) %></td>
+        <td><%= treatment.doctor_id %></td>
+        <td><%= treatment.patient_id %></td>
+        <td><%= treatment.complaints %></td>
+        <td><%= treatment.anamnesis %></td>
+        <td><%= treatment.diagnosis %></td>
+        <td><%= treatment.tests %></td>
+        <td><%= treatment.diagnosis_id %></td>
+        <td><%= treatment.plandate %></td>
+        <td><%=l treatment.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_treatment_path(treatment), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      treatment_path(treatment),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Treatment', new_treatment_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_treatment_path,
+            :class => 'btn btn-primary' %>
