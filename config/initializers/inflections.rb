@@ -13,3 +13,9 @@
 # ActiveSupport::Inflector.inflections do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+String.class_eval do
+	def caps
+		mb_chars.capitalize.to_s
+	end
+end
