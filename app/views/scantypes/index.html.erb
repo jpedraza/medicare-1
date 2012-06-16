@@ -1,0 +1,23 @@
+<h1>Listing scantypes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @scantypes.each do |scantype| %>
+  <tr>
+    <td><%= scantype.name %></td>
+    <td><%= link_to 'Show', scantype %></td>
+    <td><%= link_to 'Edit', edit_scantype_path(scantype) %></td>
+    <td><%= link_to 'Destroy', scantype, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Scantype', new_scantype_path %>
