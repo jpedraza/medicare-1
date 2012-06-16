@@ -164,6 +164,8 @@ ru:
         one: ! "%{model}: сохранение не удалось из-за %{count} ошибки"
         other: ! "%{model}: сохранение не удалось из-за %{count} ошибки"
   helpers:
+    titles: 
+      new: "Создать %{model}"
     select:
       prompt: ! "Выберите: "
     submit:
@@ -259,6 +261,8 @@ ru:
     models:
       patient: 
         one: "Пациент"
+        few: "Пациента"
+        two: "Пациента"
         other: "Пациенты"
 
     attributes:
@@ -268,6 +272,6 @@ ru:
         name: "Ф.И.О"
         card: "№ карты"
         hasscan: "Снимки"
-        
+
     errors:
       <<: *errors
