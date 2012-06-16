@@ -164,11 +164,19 @@ ru:
         one: ! "%{model}: сохранение не удалось из-за %{count} ошибки"
         other: ! "%{model}: сохранение не удалось из-за %{count} ошибки"
   helpers:
+    actions: Операции
     titles: 
       new: "Создать %{model}"
       list: "Список %{model}"
+      edit: "Редактировать %{model}"
     select:
       prompt: ! "Выберите: "
+    links:
+      new: Добавить
+      back: Назад
+      destroy: Удалить
+      edit: Изменить
+      cancel: Отмена
     submit:
       create: Создать %{model}
       submit: Сохранить %{model}
@@ -268,6 +276,17 @@ ru:
       treatment:
         one: "обращение"
         other: "обращения"
+      scantype:
+        one: тип снимка
+        few: 'типа снимка'
+        many: типов снимков
+        other: типы снимков
+      diagnosis:
+        one: диагноз
+        few: диагноза
+        many: диагнозов
+        other: диагнозы
+
 
     attributes:
       patient:
@@ -278,6 +297,16 @@ ru:
         hasscan: "Снимки"
       treatment:
         plandate: "Госп."
+      scantype:
+        name: Название
+      diagnosis:
+        name: Название
+        code: Шифр
+      scan:
+        name: Название
+        scantype_id: Тип
+
+
 
     errors:
       <<: *errors

@@ -1,24 +1,20 @@
 <%- model_class = Diagnosis.new.class -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human(:count => 1.5).caps %></h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:code) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @diagnoses.each do |diagnosis| %>
       <tr>
-        <td><%= link_to diagnosis.id, diagnosis_path(diagnosis) %></td>
-        <td><%= diagnosis.name %></td>
+        <td><%= link_to diagnosis.name, diagnosis_path(diagnosis) %></td>
         <td><%= diagnosis.code %></td>
-        <td><%=l diagnosis.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_diagnosis_path(diagnosis), :class => 'btn btn-mini' %>
