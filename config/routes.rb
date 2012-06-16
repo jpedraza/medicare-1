@@ -1,4 +1,6 @@
 Hero::Application.routes.draw do
+  resources :diagnoses
+
   resources :doctors
 
   # The priority is based upon order of creation:
