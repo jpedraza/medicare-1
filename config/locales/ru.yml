@@ -166,6 +166,7 @@ ru:
   helpers:
     titles: 
       new: "Создать %{model}"
+      list: "Список %{model}"
     select:
       prompt: ! "Выберите: "
     submit:
@@ -275,6 +276,8 @@ ru:
         name: "Ф.И.О"
         card: "№ карты"
         hasscan: "Снимки"
+      treatment:
+        plandate: "Госп."
 
     errors:
       <<: *errors
