@@ -1,6 +1,6 @@
 <%- model_class = Patient.new.class -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human(:count => 2) %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human(:count => 9) %></h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -18,11 +18,10 @@
   <tbody>
     <% @patients.each do |patient| %>
       <tr>
-        <td><%= link_to patient.id, patient_path(patient) %></td>
-        <td><%= patient.name %></td>
+        <td><%= link_to patient.name, patient_path(patient) %></td>
         <td><%= patient.card %></td>
         <td><%= patient.address %></td>
-        <td><%= patient.ltreatment_id %></td>
+        <td><%= patient.treatments.doctor_id %></td>
         <td><%= patient.hasscan %></td>
         <td><%= patient.age %></td>
         <td><%=l patient.created_at %></td>

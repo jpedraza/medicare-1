@@ -262,8 +262,11 @@ ru:
       patient: 
         one: "Пациент"
         few: "Пациента"
-        two: "Пациента"
+        many: "Пациентов"
         other: "Пациенты"
+      treatment:
+        one: "обращение"
+        other: "обращения"
 
     attributes:
       patient:
