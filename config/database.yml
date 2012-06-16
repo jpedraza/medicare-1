@@ -17,8 +17,8 @@ development:
   encoding: unicode
   database: hero_development
   pool: 5
-  username: hero
-  password:
+  username: postgres
+  password: 123qweasdzxc
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
