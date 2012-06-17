@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120616072735) do
+ActiveRecord::Schema.define(:version => 20120617062910) do
 
   create_table "diagnoses", :force => true do |t|
     t.string   "name"
@@ -57,12 +57,13 @@ ActiveRecord::Schema.define(:version => 20120616072735) do
     t.integer  "patient_id"
     t.text     "complaints"
     t.text     "anamnesis"
-    t.text     "diagnosis"
+    t.text     "diagplane"
     t.text     "tests"
     t.integer  "diagnosis_id"
     t.date     "plandate"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.boolean  "hasscan"
   end
 
 end
