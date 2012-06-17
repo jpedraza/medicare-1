@@ -1,6 +1,6 @@
 <%= simple_form_for @patient, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
-  <%= f.input :age %>
+  <%= f.input :age,  :input_html => { :class => 'span1' }  %>
   <%= f.input :address %>
   <%= f.input :card %>
 
