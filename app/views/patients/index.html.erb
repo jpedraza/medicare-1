@@ -1,6 +1,6 @@
 <%- model_class = Patient.new.class -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => t('helpers.titles.list', :model => model_class.model_name.human(:count => 9)) %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human(:count => 1.5).caps %></h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -22,7 +22,7 @@
         <td><%= link_to patient.name, patient_path(patient) %></td>
         <td><%= patient.age %></td>
         <td><%= patient.address %></td>
-        <td><%= patient.hasscan %></td>
+        <td class="centered"><%= patient.hasscan ? tag("i", :class => "icon-ok") : "" %></td>
         <td><%=l patient.lasttreatment.created_at, :format => :short %></td>
         <td><%= patient.lasttreatment.doctor.name %></td>
         <td><%= patient.lasttreatment.diagnosis.code %></td>
