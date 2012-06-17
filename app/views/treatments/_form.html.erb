@@ -9,7 +9,7 @@
   <%= f.input :tests, :input_html => { :rows => 5 }  %>
 
   <%= f.association :diagnoses, :label_method => :code  %>
-  <%= f.input :plandate, :as => :string, :input_html => { :class => 'date_picker' } %>
+  <%= f.input :plandate, :as => :string, :input_html => { :class => 'datepicker  icon-calendar' } %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
