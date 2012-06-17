@@ -1,5 +1,6 @@
 class Treatment < ActiveRecord::Base
-  attr_accessible :anamnesis, :complaints, :diagnosis, :diagnosis_id, :doctor_id, :patient_id, :plandate, :tests
+  attr_accessible :anamnesis, :complaints, :diagplane, :diagnosis_id, :doctor_id, :patient_id, :plandate, :tests
+  validates_presence_of :doctor_id, :patient_id
 
   has_many :scans
   
