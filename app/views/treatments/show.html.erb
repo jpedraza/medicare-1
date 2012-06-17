@@ -1,35 +1,40 @@
-<%- model_class = @treatment.class -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+<div class="span7">
+  <%- model_class = @treatment.class -%>
+  <div class="page-header">
+    <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  </div>
+
+  <dl class="dl-horizontal">
+    <dt><strong><%= model_class.human_attribute_name(:patient_id) %>:</strong></dt>
+    <dd><%= @treatment.patient.name %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:diagnosis_id) %>:</strong></dt>
+    <dd><%= @treatment.diagnosis.code %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:doctor_id) %>:</strong></dt>
+    <dd><%= @treatment.doctor.name %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:complaints) %>:</strong></dt>
+    <dd><%= @treatment.complaints %>&nbsp;</dd>
+    <dt><strong><%= model_class.human_attribute_name(:anamnesis) %>:</strong></dt>
+    <dd><%= @treatment.anamnesis %>&nbsp;</dd>
+    <dt><strong><%= model_class.human_attribute_name(:diagplane) %>:</strong></dt>
+    <dd><%= @treatment.diagplane %>&nbsp;</dd>
+    <dt><strong><%= model_class.human_attribute_name(:tests) %>:</strong></dt>
+    <dd><%= @treatment.tests %>&nbsp;</dd>
+    <dt><strong><%= model_class.human_attribute_name(:plandate) %>:</strong></dt>
+    <dd><%= @treatment.plandate %></dd>
+  </dl>
+
+  <div class="form-actions">
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+                treatments_path, :class => 'btn'  %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_treatment_path(@treatment), :class => 'btn' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                treatment_path(@treatment),
+                :method => 'delete',
+                :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                :class => 'btn btn-danger' %>
+  </div>
 </div>
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:doctor_id) %>:</strong></dt>
-  <dd><%= @treatment.doctor_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:patient_id) %>:</strong></dt>
-  <dd><%= @treatment.patient_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:complaints) %>:</strong></dt>
-  <dd><%= @treatment.complaints %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:anamnesis) %>:</strong></dt>
-  <dd><%= @treatment.anamnesis %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:diagnosis) %>:</strong></dt>
-  <dd><%= @treatment.diagnosis %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:tests) %>:</strong></dt>
-  <dd><%= @treatment.tests %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:diagnosis_id) %>:</strong></dt>
-  <dd><%= @treatment.diagnosis_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:plandate) %>:</strong></dt>
-  <dd><%= @treatment.plandate %></dd>
-</dl>
-
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              treatments_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_treatment_path(@treatment), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              treatment_path(@treatment),
-              :method => 'delete',
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-              :class => 'btn btn-danger' %>
+<div class="span5">
+  <%= render "scans/list" %>  
 </div>

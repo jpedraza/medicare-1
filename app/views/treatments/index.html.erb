@@ -1,36 +1,26 @@
 <%- model_class = Treatment.new.class -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human(:count => 1.5).caps %></h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:doctor_id) %></th>
-      <th><%= model_class.human_attribute_name(:patient_id) %></th>
-      <th><%= model_class.human_attribute_name(:complaints) %></th>
-      <th><%= model_class.human_attribute_name(:anamnesis) %></th>
-      <th><%= model_class.human_attribute_name(:diagnosis) %></th>
-      <th><%= model_class.human_attribute_name(:tests) %></th>
-      <th><%= model_class.human_attribute_name(:diagnosis_id) %></th>
-      <th><%= model_class.human_attribute_name(:plandate) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:patient_id) %></th>
+      <th><%= model_class.human_attribute_name(:diagnosis_id) %></th>
+      <th><%= model_class.human_attribute_name(:doctor_id) %></th>
+      <th><%= model_class.human_attribute_name(:plandate) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @treatments.each do |treatment| %>
       <tr>
-        <td><%= link_to treatment.id, treatment_path(treatment) %></td>
-        <td><%= treatment.doctor_id %></td>
-        <td><%= treatment.patient_id %></td>
-        <td><%= treatment.complaints %></td>
-        <td><%= treatment.anamnesis %></td>
-        <td><%= treatment.diagnosis %></td>
-        <td><%= treatment.tests %></td>
-        <td><%= treatment.diagnosis_id %></td>
+        <td><%= link_to l(treatment.created_at.to_date), treatment_path(treatment) %></td>
+        <td><%= treatment.patient.name %></td>
+        <td><%= treatment.diagnosis.code %></td>
+        <td><%= treatment.doctor.name %></td>
         <td><%= treatment.plandate %></td>
-        <td><%=l treatment.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_treatment_path(treatment), :class => 'btn btn-mini' %>

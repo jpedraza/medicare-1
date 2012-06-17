@@ -1,6 +1,6 @@
 <%- model_class = Treatment.new.class -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human(:count => 1.5).caps %></h1>
+  <h1><%=t '.title' %></h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to l(treatment.created_at.to_date, :format => :short), treatment_path(treatment) %></td>
         <td><%= treatment.doctor.name %></td>
-        <td><%= treatment.diagnosis.name %></td>
+        <td><%= treatment.diagnosis.code %></td>
         <td><%=l treatment.plandate %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
