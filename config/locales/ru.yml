@@ -17,6 +17,16 @@ ru:
       title: Новый пациент
     edit:
       title: Изменить данные о пациенте
+  treatments:
+    index:
+      title: Обращения пациентов
+      new: Добавить обращение
+    list:
+      title: Обращения пациента
+    show:
+      title: Обращение пациента
+
+
   date:
     abbr_day_names:
     - Вс
@@ -323,6 +333,7 @@ ru:
         created_at: "Дата"
         diagnosis_id: Диагноз
         doctor_id: Врач
+        patient_id: Пациент
       scantype:
         name: Название
       diagnosis:

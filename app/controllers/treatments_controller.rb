@@ -15,6 +15,7 @@ class TreatmentsController < ApplicationController
   # GET /treatments/1.json
   def show
     @treatment = Treatment.find(params[:id])
+    @scans = @treatment.scans
 
     respond_to do |format|
       format.html # show.html.erb
