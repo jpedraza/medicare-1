@@ -3,8 +3,5 @@ class Patient < ActiveRecord::Base
   validates_presence_of :address, :age, :card, :name
 
   has_many :treatments
-  has_one :lasttreatment, :class_name => "Treatment", :foreign_key => "id", :primary_key => "ltreatment_id", :include => [:doctor, :diagnosis]
-
-  #has_one :lastdoctor, :class_name => "Doctor", :through => :lasttreatment
-  #belongs_to :ltreatments, class_name => "Treatment", :foreign_key => "ltreatment_id"
+  belongs_to :lasttreatment, :class_name => "Treatment", :foreign_key => "ltreatment_id", :include => [:doctor, :diagnosis]
 end
