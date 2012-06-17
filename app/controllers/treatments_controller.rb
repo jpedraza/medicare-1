@@ -27,7 +27,6 @@ class TreatmentsController < ApplicationController
   # GET /treatments/new.json
   def new
     @treatment = Treatment.new
-    @diagnoses = Diagnosis.find(:all, :order => "name").map {|d| [d.name, d.id] }
 
     respond_to do |format|
       format.html # new.html.erb
