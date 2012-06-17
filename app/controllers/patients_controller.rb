@@ -15,6 +15,7 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @patient = Patient.find(params[:id])
+    @treatments = Treatment.find(:all, :conditions => ["patient_id = ?", params[:id]])
 
     respond_to do |format|
       format.html # show.html.erb

@@ -10,6 +10,13 @@ ru:
       title: Новый врач
     edit:
       title: Изменить данные о враче
+  patients:
+    index:
+      new: Добавить пациента
+    new:
+      title: Новый пациент
+    edit:
+      title: Изменить данные о пациенте
   date:
     abbr_day_names:
     - Вс
@@ -313,6 +320,9 @@ ru:
         hasscan: "Снимки"
       treatment:
         plandate: "Госп."
+        created_at: "Дата"
+        diagnosis_id: Диагноз
+        doctor_id: Врач
       scantype:
         name: Название
       diagnosis:
