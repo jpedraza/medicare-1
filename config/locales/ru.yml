@@ -2,6 +2,13 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 ru:
+  views:
+    pagination:
+      next: туда
+      previous: сюда
+      first: в начало
+      last: в конец
+      truncate: ...
   doctors:
     index:
       title: Врачи

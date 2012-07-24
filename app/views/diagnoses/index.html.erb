@@ -2,11 +2,19 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human(:count => 1.5).caps %></h1>
 </div>
+<%= form_tag '', :method => 'get', :class => "well form-search" do %>
+  <%= text_field_tag :search, params[:search], :class => "span5 input-medium search-query" %>
+  <%= hidden_field_tag :page, 1  %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= submit_tag "Искать", :name => nil %>
+<% end %>
+<%= paginate @diagnoses %>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:code) %></th>
+      <th><%= sortable :name, model_class.human_attribute_name(:name) %></th>
+      <th nowrap><%= sortable :code, model_class.human_attribute_name(:code) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -15,7 +23,7 @@
       <tr>
         <td><%= link_to diagnosis.name, diagnosis_path(diagnosis) %></td>
         <td><%= diagnosis.code %></td>
-        <td>
+        <td nowrap>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_diagnosis_path(diagnosis), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -28,6 +36,7 @@
     <% end %>
   </tbody>
 </table>
+<%= paginate @diagnoses %>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_diagnosis_path,
