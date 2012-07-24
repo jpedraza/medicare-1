@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120617062910) do
+ActiveRecord::Schema.define(:version => 20120721214409) do
 
   create_table "diagnoses", :force => true do |t|
     t.string   "name"
@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(:version => 20120617062910) do
     t.string   "address"
     t.integer  "ltreatment_id"
     t.boolean  "hasscan"
-    t.integer  "age"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.datetime "born"
   end
 
   create_table "scans", :force => true do |t|

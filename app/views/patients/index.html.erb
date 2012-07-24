@@ -20,7 +20,7 @@
       <tr>
         <td><%= patient.card %></td>
         <td><%= link_to patient.name, patient_path(patient) %></td>
-        <td><%= patient.age %></td>
+        <td><%= patient.born.year %></td>
         <td><%= patient.address %></td>
         <td class="centered"><%= patient.hasscan ? tag("i", :class => "icon-ok") : "" %></td>
         <%- if patient.lasttreatment -%>

@@ -3,7 +3,7 @@ class DiagnosesController < ApplicationController
   # GET /diagnoses
   # GET /diagnoses.json
   def index
-    @diagnoses = Diagnosis.all
+    @diagnoses = Diagnosis.all(:limit => 25)
 
     respond_to do |format|
       format.html # index.html.erb
