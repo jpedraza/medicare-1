@@ -1,9 +1,11 @@
 
 class DiagnosesController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   # GET /diagnoses
   # GET /diagnoses.json
   def index
-    @diagnoses = Diagnosis.order("code").page(params[:page])
+    @diagnoses = Diagnosis.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(20)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -81,4 +83,13 @@ class DiagnosesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  end
+
+  def sort_column
+    Diagnosis.column_names.include?(params[:sort]) ? params[:sort] : "code"
+  end  
 end
