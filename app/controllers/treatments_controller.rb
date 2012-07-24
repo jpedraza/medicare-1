@@ -1,9 +1,10 @@
 
 class TreatmentsController < ApplicationController
+  helper_method :sort_column, :sort_direction
   # GET /treatments
   # GET /treatments.json
   def index
-    @treatments = Treatment.all
+    @treatments = Treatment.order(sort_column + ' ' + sort_direction).page(params[:page]).per(20)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -82,4 +83,13 @@ class TreatmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "desc"
+  end
+
+  def sort_column
+    Treatment.column_names.include?(params[:sort]) ? params[:sort] : "created"
+  end   
 end
