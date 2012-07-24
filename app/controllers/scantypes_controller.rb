@@ -45,7 +45,7 @@ class ScantypesController < ApplicationController
 
     respond_to do |format|
       if @scantype.save
-        format.html { redirect_to @scantype, notice: 'Scantype was successfully created.' }
+        format.html { redirect_to @scantype, notice: t('scantypes.new.notice') }
         format.json { render json: @scantype, status: :created, location: @scantype }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class ScantypesController < ApplicationController
 
     respond_to do |format|
       if @scantype.update_attributes(params[:scantype])
-        format.html { redirect_to @scantype, notice: 'Scantype was successfully updated.' }
+        format.html { redirect_to @scantype, notice: t('scantypes.edit.notice') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

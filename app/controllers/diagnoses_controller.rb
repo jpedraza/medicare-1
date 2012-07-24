@@ -3,7 +3,7 @@ class DiagnosesController < ApplicationController
   # GET /diagnoses
   # GET /diagnoses.json
   def index
-    @diagnoses = Diagnosis.all(:limit => 25)
+    @diagnoses = Diagnosis.order("code").page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,7 +45,7 @@ class DiagnosesController < ApplicationController
 
     respond_to do |format|
       if @diagnosis.save
-        format.html { redirect_to @diagnosis, notice: 'Diagnosis was successfully created.' }
+        format.html { redirect_to @diagnosis, notice: t('diagnoses.new.notice') }
         format.json { render json: @diagnosis, status: :created, location: @diagnosis }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class DiagnosesController < ApplicationController
 
     respond_to do |format|
       if @diagnosis.update_attributes(params[:diagnosis])
-        format.html { redirect_to @diagnosis, notice: 'Diagnosis was successfully updated.' }
+        format.html { redirect_to @diagnosis, notice: t('diagnoses.edit.notice') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
