@@ -343,6 +343,7 @@ ru:
     attributes:
       patient:
         age: "Возраст"
+        born: Год рождения
         address: "Адрес"
         name: "Ф.И.О"
         card: "№ карты"
@@ -353,6 +354,14 @@ ru:
         diagnosis_id: Диагноз
         doctor_id: Врач
         patient_id: Пациент
+        doctor: Врач
+        patient: Пациент
+        complaints: Жалобы
+        anamnesis: Анамнез
+        diagplane: Диагноз
+        tests: Анализы
+        diagnosis: Код диагноза
+
       scantype:
         name: Название
       diagnosis:
