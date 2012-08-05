@@ -5,8 +5,12 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(20)
-#whefind(:all, :limit => 50, :include => [:lasttreatment])
+    @patients1 = Patient.includes(:lasttreatment)
+    @patients = @patients1.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(20)
+    #
+    #
+#whe
+#
 
     respond_to do |format|
       format.html # index.html.erb
@@ -93,6 +97,6 @@ class PatientsController < ApplicationController
   end
 
   def sort_column
-    Patient.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    @patients1.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end   
 end

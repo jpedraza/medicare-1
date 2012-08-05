@@ -7,7 +7,7 @@ class Patient < ActiveRecord::Base
 
 	def self.search(search)
 	  if search
-	    where (['concat(name, \'--\', born, \'--\', card, \'--\', address) ILIKE ?', "%#{search}%"])
+	    where (['concat(treatments.created_at, name, \'--\', born, \'--\', card, \'--\', address) ILIKE ?', "%#{search}%"])
 	  else
 	    scoped
 	  end

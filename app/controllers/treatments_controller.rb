@@ -90,6 +90,6 @@ class TreatmentsController < ApplicationController
   end
 
   def sort_column
-    Treatment.column_names.include?(params[:sort]) ? params[:sort] : "created"
+    Treatment.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   end   
 end
