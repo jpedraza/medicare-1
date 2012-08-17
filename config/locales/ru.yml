@@ -34,6 +34,21 @@ ru:
       title: Обращения пациента
     show:
       title: Обращение пациента
+  scans:
+    index:
+      title: Снимки
+      new: Добавить снимок
+    list:
+      title: Снимки
+    show:
+      title: Снимок
+    edit:
+      notice: Изменить информацию о снимке
+      notice: Изменения внесены
+    new:
+      title: Новый снимок
+      notice: Новый снимок добавлен
+
   scantypes:
     new: 
       title: Новый тип снимков
@@ -315,7 +330,12 @@ ru:
     accusative:
       Doctor: "доктора"
     models:
-      patient: 
+      scans: 
+        one: "Снимок"
+        few: "Снимка"
+        many: "Снимков"
+        other: "Снимки"
+      patient:
         one: "Пациент"
         few: "Пациента"
         many: "Пациентов"
@@ -361,7 +381,6 @@ ru:
         diagplane: Диагноз
         tests: Анализы
         diagnosis: Код диагноза
-
       scantype:
         name: Название
       diagnosis:
@@ -373,7 +392,8 @@ ru:
       scan:
         name: Название
         scantype_id: Тип
-
+        created_at: "Добавлен"
+        treatment_id: "Прием"
 
 
     errors:
