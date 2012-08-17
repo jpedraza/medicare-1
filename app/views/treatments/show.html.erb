@@ -6,11 +6,11 @@
 
   <dl class="dl-horizontal">
     <dt><strong><%= model_class.human_attribute_name(:patient_id) %>:</strong></dt>
-    <dd><%= @treatment.patient.name %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:diagnosis_id) %>:</strong></dt>
-    <dd><%= @treatment.diagnosis.code %></dd>
+    <dd><%= link_to @treatment.patient.name, patient_path(@treatment.patient) %></dd>
     <dt><strong><%= model_class.human_attribute_name(:doctor_id) %>:</strong></dt>
-    <dd><%= @treatment.doctor.name %></dd>
+    <dd><%= link_to @treatment.doctor.name, doctor_path(@treatment.doctor) %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:diagnosis_id) %>:</strong></dt>
+    <dd><%= link_to @treatment.diagnosis.code, diagnosis_path(@treatment.diagnosis) %></dd>
     <dt><strong><%= model_class.human_attribute_name(:complaints) %>:</strong></dt>
     <dd><%= @treatment.complaints %>&nbsp;</dd>
     <dt><strong><%= model_class.human_attribute_name(:anamnesis) %>:</strong></dt>

@@ -16,8 +16,8 @@
     <% @treatments.each do |treatment| %>
       <tr>
         <td><%= link_to l(treatment.created_at.to_date, :format => :short), treatment_path(treatment) %></td>
-        <td><%= treatment.doctor.name %></td>
-        <td><%= treatment.diagnosis.code %></td>
+        <td><%= link_to treatment.doctor.name, doctor_path(treatment.doctor) %></td>
+        <td><%= link_to treatment.diagnosis.code, diagnosis_path(treatment.diagnosis) %></td>
         <td><%=l treatment.plandate %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
