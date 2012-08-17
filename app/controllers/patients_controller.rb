@@ -7,10 +7,6 @@ class PatientsController < ApplicationController
   def index
     @patients1 = Patient.includes(:lasttreatment)
     @patients = @patients1.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(20)
-    #
-    #
-#whe
-#
 
     respond_to do |format|
       format.html # index.html.erb
