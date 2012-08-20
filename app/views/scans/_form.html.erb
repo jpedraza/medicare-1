@@ -1,4 +1,4 @@
-<%= form_for @scan, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @scan, :html => { :class => 'form-horizontal',  :multipart => true } do |f| %>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
@@ -15,6 +15,13 @@
     <%= f.label :treatment_id, :class => 'control-label' %>
     <div class="controls">
       <%= f.number_field :treatment_id, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :scanbody, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :scanbody, :class => 'file_field' %>
     </div>
   </div>
 

@@ -1,4 +1,4 @@
-<div class="span7">
+<div class="span6">
   <%- model_class = @treatment.class -%>
   <div class="page-header">
     <h1><%=t '.title', :default => model_class.model_name.human %></h1>
@@ -11,30 +11,30 @@
     <dd><%= link_to @treatment.doctor.name, doctor_path(@treatment.doctor) %></dd>
     <dt><strong><%= model_class.human_attribute_name(:diagnosis_id) %>:</strong></dt>
     <dd><%= link_to @treatment.diagnosis.code, diagnosis_path(@treatment.diagnosis) %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:complaints) %>:</strong></dt>
-    <dd><%= @treatment.complaints %>&nbsp;</dd>
-    <dt><strong><%= model_class.human_attribute_name(:anamnesis) %>:</strong></dt>
-    <dd><%= @treatment.anamnesis %>&nbsp;</dd>
-    <dt><strong><%= model_class.human_attribute_name(:diagplane) %>:</strong></dt>
-    <dd><%= @treatment.diagplane %>&nbsp;</dd>
-    <dt><strong><%= model_class.human_attribute_name(:tests) %>:</strong></dt>
-    <dd><%= @treatment.tests %>&nbsp;</dd>
     <dt><strong><%= model_class.human_attribute_name(:plandate) %>:</strong></dt>
     <dd><%= @treatment.plandate %></dd>
   </dl>
+    <p><span class="label label-info"><%= model_class.human_attribute_name(:complaints) %></span> <%= @treatment.complaints %></p>
+    <p><span class="label"><%= model_class.human_attribute_name(:anamnesis) %></span> <%= @treatment.anamnesis %>&nbsp;</p>
+    <p><span class="label label-important"><%= model_class.human_attribute_name(:diagplane) %></span> <%= @treatment.diagplane %>&nbsp;</p>
+    <p><span class="label label-warning"><%= model_class.human_attribute_name(:tests) %></span> <%= @treatment.tests %>&nbsp;</p>
 
   <div class="form-actions">
-    <%= link_to t('.back', :default => t("helpers.links.back")),
+    <%= link_to content_tag(:i, "", :class =>  'icon-backward')  + " " + t('.back', :default => t("helpers.links.back")),
                 treatments_path, :class => 'btn'  %>
-    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    <%= link_to content_tag(:i, "", :class =>  'icon-edit')  + " " + t('.edit', :default => t("helpers.links.edit")),
                 edit_treatment_path(@treatment), :class => 'btn' %>
-    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+    <%= link_to content_tag(:i, "", :class =>  'icon-trash')  + " " + t('.destroy', :default => t("helpers.links.destroy")),
                 treatment_path(@treatment),
                 :method => 'delete',
                 :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                :class => 'btn btn-danger' %>
+                :class => 'btn btn-danger ' %>
+    <%= link_to content_tag(:i, "", :class =>  'icon-print')  + " " + t('.print-poly'),
+                reportpoly_treatment_path, :class => 'btn btn-info'  %>
+    <%= link_to content_tag(:i, "", :class =>  'icon-print')  + " " + t('.print-plan'),
+                reportplan_treatment_path, :class => 'btn btn-info'  %>
   </div>
 </div>
-<div class="span5">
+<div class="span6">
   <%= render "scans/list" %>  
 </div>

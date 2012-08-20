@@ -32,10 +32,17 @@ body {
 // Example:
 // @linkColor: #ff0000;
 
+@grayText: #999;
+
+.padded {padding-top:5px;}
+small {font-size:95%;}
+small * {font-size:95%;}
+div .gray {color:@grayText;}
+
 td.centered {text-align:center}
 
-td small a {color:#999; font-size:95%; text-decoration:underline;}
-td small {color:#999; font-size:95%;}
+td small a {color:@grayText; text-decoration:underline;}
+td small {color:@grayText; }
 
 .form-horizontal {
 	input.string {

@@ -16,7 +16,7 @@ class TreatmentsController < ApplicationController
   # GET /treatments/1.json
   def show
     @treatment = Treatment.find(params[:id])
-    @scans = @treatment.scans
+    @scans = Scan.where("treatment_id = ?", params[:id]).order('created_at').joins(:scantype)
 
     respond_to do |format|
       format.html # show.html.erb

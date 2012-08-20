@@ -1,9 +1,17 @@
 Hero::Application.routes.draw do
-  resources :treatments
+  resources :treatments do
+    member do
+      get :reportpoly 
+      get :reportplan
+    end    
+  end
 
   resources :scans
 
-  resources :patients
+  resources :patients do
+    resources :treatments
+
+  end
 
   resources :scantypes
 
