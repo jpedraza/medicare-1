@@ -380,6 +380,7 @@ ru:
         anamnesis: Анамнез
         diagplane: Диагноз
         tests: Анализы
+        conclusion: Заключение
         diagnosis: Код диагноза
       scantype:
         name: Название

@@ -18,6 +18,7 @@
     <p><span class="label"><%= model_class.human_attribute_name(:anamnesis) %></span> <%= @treatment.anamnesis %>&nbsp;</p>
     <p><span class="label label-important"><%= model_class.human_attribute_name(:diagplane) %></span> <%= @treatment.diagplane %>&nbsp;</p>
     <p><span class="label label-warning"><%= model_class.human_attribute_name(:tests) %></span> <%= @treatment.tests %>&nbsp;</p>
+    <p><span class="label label-success"><%= model_class.human_attribute_name(:conxlusion) %></span> <%= @treatment.conclusion %>&nbsp;</p>
 
   <div class="form-actions">
     <%= link_to content_tag(:i, "", :class =>  'icon-backward')  + " " + t('.back', :default => t("helpers.links.back")),
